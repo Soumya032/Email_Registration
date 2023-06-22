@@ -55,7 +55,7 @@ app.post("/",(req,res) => {
           } */
           response.on("data",(data) => {
             const dataObject = JSON.parse(data);
-            if(response.statusCode===200){
+            if(dataObject.errors.length === 0){
                 res.sendFile(__dirname+"/success.html");
             }
             else{
