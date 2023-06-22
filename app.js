@@ -42,7 +42,7 @@ app.post("/",(req,res) => {
 
     const options={
         method:"POST",
-        auth:"soumya:690c3123b64c5f84be048fae2d2d1982-us21"
+        auth:"soumya:0d2d191b1f0215bbd47ff12490984612-us21"
     }
 
     const req_est=https.request(url,options,(response) => {
@@ -55,10 +55,7 @@ app.post("/",(req,res) => {
           } */
           response.on("data",(data) => {
             const dataObject = JSON.parse(data);
-            if(dataObject.errors[0].error_code==="ERROR_GENERIC"){
-                res.sendFile(__dirname+"/failure.html");
-            }
-            else if(response.statusCode===200){
+            if(response.statusCode===200){
                 res.sendFile(__dirname+"/success.html");
             }
             else{
